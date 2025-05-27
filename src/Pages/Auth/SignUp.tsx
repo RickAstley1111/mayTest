@@ -1,22 +1,20 @@
 import { useEffect, useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
+import { API } from "../../utils/config"
 import { toast, ToastContainer } from 'react-toastify'
-import { API } from '../../utils/config'
 
 function SignUp() {
     const navigate = useNavigate()
-
-    useEffect(() =>{
-        if(localStorage.getItem("auth")){
+    useEffect(() => {
+        if (localStorage.getItem("auth")) {
             navigate("/homePage")
         }
-    },[])
+    }, [])
 
     const [UserData, setUserData] = useState({
-        name: "",
-        email:"my-email",
-        secret: "my-secret",
-        key:""
+        name: "My-name",
+        key: "KakaKey",
+        email:"zorEmail",
     })
 
     const inputChange = (el: any) => {
@@ -27,16 +25,18 @@ function SignUp() {
 
     }
 
-    const handleRegister = () => {
-        API.post("/signup", UserData).then((res) => {
-            localStorage.setItem("auth", "true")
-            localStorage.setItem("key" , res.data.data.key)
-            localStorage.setItem("secret" , res.data.data.secret)
+    const handleLogin = async () => {
+        await API.post("/signup", UserData).then((res:any) => {
+            localStorage.setItem("key", res.data.data.key);
+            localStorage.setItem("secret", res.data.data.secret);
             localStorage.setItem("user" , JSON.stringify(res.data.data))
-            navigate("/homePage")
-            toast.success("entered succesfuly")
+            localStorage.setItem("auth", "true");
+            console.log(res.data);
+            
+            navigate("/homePage");
         })
 
+        toast.success("logged in succesfuly")
     }
 
     return (
@@ -44,12 +44,12 @@ function SignUp() {
             <div className="SignUpContent">
 
                 <div>
-                    <h1 className="SignUpTitle">Sign Up</h1>
+                    <h1 className="SignUpTitle">Sign In</h1>
 
                     <div className="SignUpInputs">
                         <div>
-                            <span>Name</span>
-                            <input name='name' onChange={(el: any) => inputChange(el)} placeholder="name" type="text" />
+                            <span>Usesrname</span>
+                            <input name='name' onChange={(el: any) => inputChange(el)} placeholder="Enter username" type="text" />
                         </div>
 
                         <div>
@@ -60,16 +60,16 @@ function SignUp() {
                     </div>
 
                     <div className="lowerSignUp">
-                        <button onClick={handleRegister} className="sumbitBtn">
+                        <button onClick={handleLogin} className="sumbitBtn">
                             Sumbit
                         </button>
-                        <p>Already signed up? <Link to={"/SignIn"}>go to sign in</Link></p>
+                        <p>Dont have an account? <Link to={"/SignUp"}>go to sign up</Link></p>
                     </div>
 
 
                 </div>
             </div>
-            <ToastContainer />
+             <ToastContainer  />
         </div>
     )
 }
