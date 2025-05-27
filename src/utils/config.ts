@@ -1,9 +1,6 @@
 import axios, { type InternalAxiosRequestConfig } from "axios";
 import CryptoJS from "crypto-js";
 
-const key: string = localStorage.getItem("key") || "";
-const secret: string = localStorage.getItem("secret") || "";
-
 function generateSign(
   method: string,
   path: string,
@@ -27,6 +24,9 @@ export const API = axios.create({
 });
 
 API.interceptors.request.use((config: InternalAxiosRequestConfig) => {
+  const key = localStorage.getItem("key") || "";
+  const secret = localStorage.getItem("secret") || "";
+
   const method = config.method?.toUpperCase() || "GET";
 
   const url = config.url || "/";
@@ -40,5 +40,3 @@ API.interceptors.request.use((config: InternalAxiosRequestConfig) => {
 
   return config;
 });
-
-export const API_URL = "https://lavina.onrender.com/";
