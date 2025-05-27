@@ -1,11 +1,9 @@
 import axios, { type InternalAxiosRequestConfig } from "axios";
 import CryptoJS from "crypto-js";
 
-// Получаем ключ и секрет из localStorage
 const key: string = localStorage.getItem("key") || "";
 const secret: string = localStorage.getItem("secret") || "";
 
-// Генерация подписи
 function generateSign(
   method: string,
   path: string,
@@ -21,7 +19,6 @@ function generateSign(
   return CryptoJS.MD5(signStr).toString();
 }
 
-// Создание экземпляра Axios
 export const API = axios.create({
   baseURL: "https://lavina.onrender.com",
   headers: {
@@ -29,7 +26,6 @@ export const API = axios.create({
   },
 });
 
-// Интерцептор с правильной типизацией
 API.interceptors.request.use((config: InternalAxiosRequestConfig) => {
   const method = config.method?.toUpperCase() || "GET";
 
