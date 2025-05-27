@@ -2,6 +2,7 @@ import axios from 'axios'
 import { useEffect, useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import { toast, ToastContainer } from 'react-toastify'
+import { API } from '../../utils/config'
 
 function SignUp() {
     const navigate = useNavigate()
@@ -28,7 +29,7 @@ function SignUp() {
     }
 
     const handleRegister = () => {
-        axios.post("https://lavina.onrender.com/signup", UserData).then((res) => {
+        API.post("/signup", UserData).then((res) => {
             localStorage.setItem("auth", "true")
             localStorage.setItem("key" , res.data.data.key)
             localStorage.setItem("secret" , res.data.data.secret)
