@@ -1,0 +1,314 @@
+@import url('https://fonts.googleapis.com/css2?family=Mulish:wght@300;400;600;700&display=swap');
+
+* {
+  font-family: 'Mulish', sans-serif;
+}
+
+body {
+  background-image: url('../src/assets/normIsm.png');
+  background-size: cover;
+  color: white;
+  margin: 0px;
+}
+
+
+.SignUpPage {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
+.SignUpContent {
+  width: 374px;
+  height: 368px;
+  background-color: white;
+  padding: 28px;
+}
+
+
+
+
+.SignUpTitle {
+  color: black;
+  text-align: center;
+}
+
+.SignUpInputs {
+  display: flex;
+  flex-direction: column;
+  color: black;
+  gap: 16px;
+  margin-top: 36px;
+}
+
+.SignUpInputs div {
+  display: flex;
+  flex-direction: column;
+}
+
+.SignUpInputs span {
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.SignUpInputs input {
+  height: 47px;
+  border-radius: 6px;
+  border: #d2d2d2 solid 1px;
+  outline: none;
+}
+
+
+.sumbitBtn {
+  background-color: #6200EE;
+  display: flex;
+  color: white;
+  height: 40px;
+  align-items: center;
+  border: none;
+  width: 100%;
+  text-align: center;
+  justify-content: center;
+  border-radius: 6px;
+  margin-top: 36px;
+}
+
+.lowerSignUp {
+  color: black;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.container {
+  width: 1300px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.leftsideHeder {
+  height: 48px;
+  padding: 0px;
+  display: flex;
+  align-items: center;
+}
+
+.leftsideHeder input {
+  border: none;
+  margin-left: 24px;
+  color: white;
+  padding: 10px;
+  width: 300px;
+  background-color: transparent;
+}
+
+.books-top {
+  display: flex;
+  justify-content: space-between;
+}
+
+.books-top div {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.books-top div span {
+  color: #6200EE;
+  font-weight: 700;
+  font-size: 36px;
+}
+
+.books-top div h2 {
+  font-size: 36px;
+  font-weight: 700;
+  margin: 0px;
+}
+
+.books-top button {
+  width: 180px;
+  background-color: #6200EE;
+  color: white;
+  border: none;
+  border-radius: 10px;
+}
+
+.booksList ul {
+  display: flex;
+  gap: 50px;
+  flex-wrap: wrap;
+  padding: 0px;
+  width: 100%;
+}
+
+
+.books-item {
+  width: 400px;
+  height: 214px;
+  position: relative;
+  background-color: #ffffff;
+  border-radius: 10px;
+  display: flex;
+  color: black;
+  box-shadow: 0px 0px 10px 3px black;
+}
+
+.book-item-info {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  padding: 20px;
+  height: 174px;
+  justify-content: space-between;
+}
+
+.book-item-info h5 {
+  margin-top: 0px;
+  margin-bottom: 6px;
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.book-item-info span {
+  font-size: 14px;
+  font-weight: 400;
+}
+
+.statuscha {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.characteristics {
+  display: flex;
+  flex-direction: column;
+}
+
+.new {
+  background-color: rgb(255, 0, 0);
+  padding: 10px;
+  padding: 7px;
+  border-radius: 10px;
+  align-items: center;
+  text-align: center;
+}
+
+.Reading {
+  background-color: yellow;
+  color: black;
+  padding: 7px;
+  border-radius: 10px;
+}
+
+.Finished {
+  background-color: rgb(0, 221, 0);
+  color: black;
+  padding: 7px;
+  border-radius: 10px;
+}
+
+.someInvisThings {
+  width: 0px;
+}
+
+
+
+.books-item:hover .someInvisThings {
+  top: 10px;
+  right: -32px;
+  position: absolute;
+  height: 65px;
+  width: 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.books-item:hover .editTh {
+  width: 32px;
+  height: 32px;
+  border: NONE;
+  color: white;
+  border-radius: 0px 6px 6px 6px;
+  background-color: #6200EE;
+  font-size: 14px;
+  transition: 0.6s;
+}
+
+.books-item:hover .delTh {
+  width: 32px;
+  height: 32px;
+  border: NONE;
+  border-radius: 0px 6px 6px 6px;
+  background-color: #ff0a0a;
+  font-size: 14px;
+  transition: 0.6s;
+}
+
+.delTh {
+  width: 0px;
+  padding: 0px;
+  border: none;
+  font-size: 0;
+}
+
+.editTh {
+  width: 0px;
+  padding: 0px;
+  border: none;
+  font-size: 0;
+}
+
+
+.closed-modal {
+  display: none;
+}
+
+.modal-opened {
+  display: block;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #0707076e;
+  top: 0;
+}
+
+.modal-content {
+  width: 500px;
+  height: 600px;
+  background-color: white;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 20vh;
+  margin-bottom: 20vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.modalBtn {
+  width: 170px;
+  height: 40px;
+  border-radius: 10px;
+  margin-top: 10px;
+  background-color: #6200EE;
+  color: white;
+}
+
+.modalInp {
+  height: 40px;
+  border-radius: 10px;
+}
+
+.modal-content select {
+  width: 170px;
+  height: 40px;
+  border-radius: 10px;
+}
