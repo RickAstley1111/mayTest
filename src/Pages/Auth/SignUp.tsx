@@ -12,7 +12,7 @@ function SignUp() {
     }, [])
 
     const [UserData, setUserData] = useState({
-        name: "My-name",
+        name: "Myname",
         key: "KakaKey",
         email:"zorEmail",
     })
@@ -55,6 +55,11 @@ function SignUp() {
                         <div>
                             <span>Enter Password</span>
                             <input name='key' onChange={(el: any) => inputChange(el)} placeholder="password" type="password" />
+                        </div>
+
+                        <div>
+                            <span>Enter Email</span>
+                            <input name='email' type="text" onChange={((el:any) => inputChange(el))} placeholder='email'  />
                         </div>
 
                     </div>
