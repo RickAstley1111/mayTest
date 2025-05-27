@@ -44,7 +44,7 @@ function SignUp() {
             <div className="SignUpContent">
 
                 <div>
-                    <h1 className="SignUpTitle">Sign In</h1>
+                    <h1 className="SignUpTitle">Sign Up</h1>
 
                     <div className="SignUpInputs">
                         <div>
