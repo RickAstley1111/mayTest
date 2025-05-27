@@ -31,6 +31,7 @@ function SignUp() {
         axios.post("https://lavina.onrender.com/signup", UserData).then((res) => {
             localStorage.setItem("auth", "true")
             localStorage.setItem("key" , res.data.data.key)
+            localStorage.setItem("secret" , res.data.data.secret)
             localStorage.setItem("user" , JSON.stringify(res.data.data))
             navigate("/homePage")
             toast.success("entered succesfuly")
