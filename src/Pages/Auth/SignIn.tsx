@@ -27,17 +27,22 @@ function SignIn() {
     }
 
     const handleLogin = async () => {
-        await API.post("/signup", UserData).then((res:any) => {
-            localStorage.setItem("key", res.data.data.key);
-            localStorage.setItem("secret", res.data.data.secret);
-            localStorage.setItem("user" , JSON.stringify(res.data.data))
-            localStorage.setItem("auth", "true");
-            console.log(res.data);
-            
-            navigate("/homePage");
-        })
+         try {
+            await API.post("/signup", UserData).then((res: any) => {
+                localStorage.setItem("key", res.data.data.key);
+                localStorage.setItem("secret", res.data.data.secret);
+                localStorage.setItem("user", JSON.stringify(res.data.data))
+                localStorage.setItem("auth", "true");
+                console.log(res.data);
 
-        toast.success("logged in succesfuly")
+                navigate("/homePage");
+            })
+
+            toast.success("logged in succesfuly")
+        }
+        catch (err) {
+        toast.error("your username or password is incorrect")
+        }
     }
 
     return (

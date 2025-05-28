@@ -14,7 +14,7 @@ function SignUp() {
     const [UserData, setUserData] = useState({
         name: "Myname",
         key: "KakaKey",
-        email:"zorEmail",
+        email: "zorEmail",
     })
 
     const inputChange = (el: any) => {
@@ -26,19 +26,25 @@ function SignUp() {
     }
 
     const handleLogin = async () => {
-        await API.post("/signup", UserData).then((res:any) => {
-            localStorage.setItem("key", res.data.data.key);
-            localStorage.setItem("secret", res.data.data.secret);
-            localStorage.setItem("user" , JSON.stringify(res.data.data))
-            localStorage.setItem("auth", "true");
-            console.log(res.data);
-            
-            navigate("/homePage");
-        })
+        try {
+            await API.post("/signup", UserData).then((res: any) => {
+                localStorage.setItem("key", res.data.data.key);
+                localStorage.setItem("secret", res.data.data.secret);
+                localStorage.setItem("user", JSON.stringify(res.data.data))
+                localStorage.setItem("auth", "true");
+                console.log(res.data);
 
-        toast.success("logged in succesfuly")
+                navigate("/homePage");
+            })
+
+            toast.success("logged in succesfuly")
+        }
+        catch (err) {
+        toast.error("your emial or password is incorrect")
+        }
+
+
     }
-
     return (
         <div className="SignUpPage">
             <div className="SignUpContent">
@@ -59,7 +65,7 @@ function SignUp() {
 
                         <div>
                             <span>Enter Email</span>
-                            <input name='email' type="text" onChange={((el:any) => inputChange(el))} placeholder='email'  />
+                            <input name='email' type="text" onChange={((el: any) => inputChange(el))} placeholder='email' />
                         </div>
 
                     </div>
@@ -74,7 +80,7 @@ function SignUp() {
 
                 </div>
             </div>
-             <ToastContainer  />
+            <ToastContainer />
         </div>
     )
 }
