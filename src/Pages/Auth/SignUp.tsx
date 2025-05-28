@@ -68,7 +68,7 @@ function SignUp() {
                         <button onClick={handleLogin} className="sumbitBtn">
                             Sumbit
                         </button>
-                        <p>Dont have an account? <Link to={"/SignUp"}>go to sign up</Link></p>
+                        <p>Dont have an account? <Link to={"/SignIn"}>go to sign In</Link></p>
                     </div>
 
 
